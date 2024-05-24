@@ -1,17 +1,28 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route, Switch } from 'react-router-dom';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import Dashboard from './pages/Dashboard';
+import DrawingCanvas from './pages/DrawingCanvas';
 
 function App() {
   return (
     <div className="App">
-      <nav>
-        <ul>
-          <li><Link to="/login">Login</Link></li>
-          <li><Link to="/signup">Signup</Link></li>
-          <li><Link to="/dashboard">Dashboard</Link></li>
+      <nav className="bg-gray-800 p-4">
+        <ul className="flex space-x-4">
+          <li><Link to="/login" className="text-white">Login</Link></li>
+          <li><Link to="/signup" className="text-white">Signup</Link></li>
+          <li><Link to="/dashboard" className="text-white">Dashboard</Link></li>
+          <li><Link to="/draw" className="text-white">Draw</Link></li>
         </ul>
       </nav>
-      <h1>Welcome to the Drawing App</h1>
+      <Switch>
+        <Route path="/login" component={Login} />
+        <Route path="/signup" component={Signup} />
+        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/draw" component={DrawingCanvas} />
+        <Route path="/" exact component={Dashboard} />
+      </Switch>
     </div>
   );
 }
