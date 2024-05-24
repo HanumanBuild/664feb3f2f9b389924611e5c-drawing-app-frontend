@@ -1,5 +1,5 @@
-import axiosInstance from '../utils/axiosInstance';
 import React, { useState } from 'react';
+import axiosInstance from '../utils/axiosInstance';
 
 function Signup() {
   const [email, setEmail] = useState('');
